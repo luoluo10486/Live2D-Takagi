@@ -1,0 +1,9 @@
+*.kra filter=lfs diff=lfs merge=lfs -text
+*.ora filter=lfs diff=lfs merge=lfs -text
+*.psd filter=lfs diff=lfs merge=lfs -text
+00_source/*.jpg filter=lfs diff=lfs merge=lfs -text
+00_source/*.png filter=lfs diff=lfs merge=lfs -text
+03_krita_starter_safe/*.png filter=lfs diff=lfs merge=lfs -text
+03_krita_starter_safe/Thumbnails/*.png filter=lfs diff=lfs merge=lfs -text
+03_krita_starter_safe/layers/*.png filter=lfs diff=lfs merge=lfs -text
+*.cmo3 filter=lfs diff=lfs merge=lfs -text

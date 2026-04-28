@@ -1,0 +1,112 @@
+{
+  "model_name": "takagi_cat_pose_personal_live2d",
+  "target": "Live2D Cubism / VTube Studio",
+  "canvas_policy": {
+    "keep_original_pose": true,
+    "minimum_redraw": true,
+    "recommended_height_px": 2048
+  },
+  "parameters": [
+    {
+      "id": "ParamAngleX",
+      "range": [-20, 20],
+      "parts": ["head_base", "face", "hair_front_L", "hair_front_R", "cat_ear_L", "cat_ear_R"],
+      "note": "头部左右转动。原图是正面，幅度建议小一点，避免需要大量侧面补画。"
+    },
+    {
+      "id": "ParamAngleY",
+      "range": [-12, 12],
+      "parts": ["head_base", "face", "hair_front_L", "hair_front_R", "choker", "bell_base"],
+      "note": "低头/抬头。铃铛跟随脖子轻动。"
+    },
+    {
+      "id": "ParamAngleZ",
+      "range": [-10, 10],
+      "parts": ["head_base", "hair", "cat_ears"],
+      "note": "歪头。保持原图俏皮感，幅度可以比 X/Y 更明显。"
+    },
+    {
+      "id": "ParamEyeLOpen",
+      "range": [0, 1],
+      "parts": ["upper_lid_L", "lower_lid_L", "iris_L", "eye_highlight_L"],
+      "note": "左眼眨眼。"
+    },
+    {
+      "id": "ParamEyeROpen",
+      "range": [0, 1],
+      "parts": ["upper_lid_R", "lower_lid_R", "iris_R", "eye_highlight_R"],
+      "note": "右眼眨眼。"
+    },
+    {
+      "id": "ParamEyeBallX",
+      "range": [-1, 1],
+      "parts": ["iris_L", "iris_R", "eye_highlight_L", "eye_highlight_R"],
+      "note": "眼球左右。"
+    },
+    {
+      "id": "ParamEyeBallY",
+      "range": [-1, 1],
+      "parts": ["iris_L", "iris_R", "eye_highlight_L", "eye_highlight_R"],
+      "note": "眼球上下。"
+    },
+    {
+      "id": "ParamMouthOpenY",
+      "range": [0, 1],
+      "parts": ["mouth_back", "tongue", "upper_teeth_L", "upper_teeth_R", "mouth_line"],
+      "note": "嘴巴开合。原图张嘴很大，建议默认值 0.75，闭合值另画。"
+    },
+    {
+      "id": "ParamMouthForm",
+      "range": [-1, 1],
+      "parts": ["mouth_line", "tongue"],
+      "note": "嘴型变化：-1 收口，0 默认，1 更开心。"
+    },
+    {
+      "id": "ParamBodyAngleX",
+      "range": [-8, 8],
+      "parts": ["torso_skin", "dress_base", "arms", "paw_gloves"],
+      "note": "身体左右轻摆，猫爪跟随一点即可。"
+    },
+    {
+      "id": "ParamBreath",
+      "range": [0, 1],
+      "parts": ["torso_skin", "dress_base", "dress_shadow", "choker", "bell_base"],
+      "note": "呼吸循环。裙装和肩部轻微上下即可。"
+    },
+    {
+      "id": "ParamHairSwing",
+      "range": [-1, 1],
+      "parts": ["hair_side_L", "hair_side_R", "hair_back"],
+      "note": "长发物理摆动。"
+    },
+    {
+      "id": "ParamPawWave",
+      "range": [-1, 1],
+      "parts": ["paw_L_base", "paw_R_base", "paw_L_pads", "paw_R_pads", "paw_L_claws", "paw_R_claws"],
+      "note": "猫爪轻微上下/旋转摆动，适合做待机动作。"
+    },
+    {
+      "id": "ParamBellSwing",
+      "range": [-1, 1],
+      "parts": ["bell_base", "bell_shadow"],
+      "note": "铃铛左右小幅摆动。"
+    }
+  ],
+  "physics_groups": [
+    {
+      "name": "hair_physics",
+      "input": ["ParamAngleX", "ParamAngleZ"],
+      "output": ["ParamHairSwing"]
+    },
+    {
+      "name": "bell_physics",
+      "input": ["ParamAngleX", "ParamBodyAngleX"],
+      "output": ["ParamBellSwing"]
+    },
+    {
+      "name": "paw_idle_motion",
+      "input": ["ParamBreath"],
+      "output": ["ParamPawWave"]
+    }
+  ]
+}
