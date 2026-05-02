@@ -11,10 +11,10 @@
 ```
 Live2D-Takagi/
 ├── 00_source/                  # 原始素材
-│   ├── 1648138415955_original.jpg    # 原始插画
+│   ├── 1648138415955_original.jpg    # 原始插画（第三方同人作品）
 │   └── 1648138415955_cutout_user.png # 手动抠图透明 PNG
 │
-├── 02_specs/                   # 制作规范文档
+├── 02_specs/                   # 制作规范文档（本项目编写）
 │   ├── cubism_parameters.json        # Cubism 参数定义（含物理分组）
 │   ├── cubism_workflow.md            # 完整制作流程指南
 │   └── live2d_layer_manifest.md      # 图层拆分清单与补画说明
@@ -26,7 +26,7 @@ Live2D-Takagi/
 │   ├── merged_preview.png            # 合成预览
 │   └── layers/                       # 各图层 PNG 文件
 │
-├── 04_motion_templates/        # 动作模板
+├── 04_motion_templates/        # 动作模板（本项目编写）
 │   ├── blink_loop.motion3.json       # 眨眼循环
 │   ├── idle_breath.motion3.json      # 待机呼吸
 │   ├── mouth_test.motion3.json       # 嘴巴开合测试
@@ -34,7 +34,7 @@ Live2D-Takagi/
 │   ├── playful_head_tilt.motion3.json # 俏皮歪头
 │   └── README.md                     # 动作模板使用说明
 │
-├── tools/                      # 自动化工具
+├── tools/                      # 自动化工具（本项目编写）
 │   ├── build_krita_layer_starter.py  # 从原图自动生成分层 ORA/PSD 文件
 │   └── prepare_reference_assets.py   # 准备参考素材
 │
@@ -99,6 +99,23 @@ python build_krita_layer_starter.py
 
 ---
 
-## 📄 许可
+## 📄 许可与第三方素材声明
 
-本项目仅供个人学习与非商业用途。
+### 本项目原创内容
+
+以下内容为本项目原创，仅供个人学习与非商业用途：
+
+- `02_specs/` — 制作规范文档（参数定义、制作流程、图层清单）
+- `03_krita_starter_safe/` — 自动生成的 Krita 分层起步文件
+- `04_motion_templates/` — 动作模板文件
+- `tools/` — 自动化工具脚本
+- `takagi_live2d_model.cmo3` — Live2D Cubism 模型工程文件
+
+### 第三方素材（非本项目原创）
+
+| 来源 | 路径 | 作者 | 许可 |
+| --- | --- | --- | --- |
+| 高木同学同人插画 | `00_source/1648138415955_original.jpg` | 原画师（Pixiv 来源，具体作者待确认） | 仅供个人学习，版权归原作者所有 |
+| Live2D 官方示例模型（とろろ & ひじき） | 本地使用，未包含在仓库中 | Live2D Inc.（插画 & 建模） | 按 [Live2D 无償提供マテリアル使用許諾契約書](https://www.live2d.com/eula/live2d-free-material-license-agreement_jp.html) 规定使用 |
+
+> **注意**：とろろ & ひじき模型文件是 Live2D Inc. 官方提供的示例数据，因许可协议禁止原始素材的再配布（§4.1.1），该文件未包含在本仓库中。如需使用请自行前往 [Live2D 官方下载页面](https://www.live2d.com/learn/sample/) 获取。
